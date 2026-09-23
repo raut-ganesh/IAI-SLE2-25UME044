@@ -1,74 +1,113 @@
-SLE-2: BFS vs DFS Profiling
-Course: 02AML204 – Introduction to Artificial Intelligence
+# SLE-2: BFS vs DFS Profiling
 
-PRN: 25UME044
+**Course:** 02AML204 – Introduction to Artificial Intelligence
+**PRN:** 25UME044
+**Name:** Ganesh Ujesh Raut
+**Division:** A
 
-Name: Ganesh Ujesh Raut
+## About the Project
 
-Division: A
+This project is developed as part of **SLE-2: Profiling Report** for the *Introduction to Artificial Intelligence* course.
 
-About the Project
-This project is part of SLE-2: Profiling Report for the Introduction to Artificial Intelligence course.
+The experiment focuses on the practical performance comparison of two uninformed search techniques:
 
-The project compares the empirical performance of two uninformed search algorithms:
+* **Breadth-First Search (BFS)**
+* **Depth-First Search (DFS)**
 
-Breadth-First Search (BFS)
-Depth-First Search (DFS)
-Both algorithms are tested on the same binary-tree graph.
+Both algorithms are implemented in Python and evaluated using the same binary-tree graph and search target.
 
-Objective
-The main objective is to:
+## Objective
 
-Implement BFS and DFS in Python.
-Measure their execution time.
-Count the number of nodes expanded.
-Profile their execution using Py-Spy.
-Compare the observed performance of both algorithms.
-Graph Used
-The experiment uses a binary-tree graph with:
+The main objectives of this experiment are to:
 
-Vertices (V): 65,535
-Edges (E): 65,534
-Start Node: 0
-Goal Node: 30,000
-Profiling Tools
-1. timeit
-Python's built-in timeit module is used to measure the execution time of BFS and DFS.
+* Implement BFS and DFS using Python.
+* Measure the execution time of both algorithms.
+* Track the number of nodes expanded during the search.
+* Profile the program using **Py-Spy**.
+* Generate flamegraphs for performance visualization.
+* Compare the practical behaviour of BFS and DFS.
 
-2. Py-Spy
-Py-Spy is used to profile the Python program and generate flamegraphs showing where execution time is spent.
+## Graph Used
 
-3. Node Counter
-A nodes_expanded counter is maintained in both algorithms to record the number of nodes examined before reaching the goal.
+A binary-tree graph is used for conducting the experiment.
 
-Experimental Results
-Metric	BFS	DFS
-Average Time	4.56 ms	23.33 ms
-Nodes Expanded	15,000	54,472
-The reported values are from the selected experiment documented in the SLE-2 report.
+The graph contains:
 
-Complexity
-Algorithm	Best Case	Average Case	Worst Case	Space Complexity
-BFS	O(1)	O(V)	O(V)	O(V)
-DFS	O(1)	O(V)	O(V)	O(V)
-Where V represents the number of vertices.
+* **Vertices (V):** 65,535
+* **Edges (E):** 65,534
+* **Start Node:** 0
+* **Goal Node:** 30,000
 
-Analysis
-For this particular experiment, BFS had a lower measured execution time and expanded fewer nodes than DFS.
+Both algorithms use the same graph, starting point, and goal node so that their observed performance can be compared under the same conditions.
 
-BFS took 5.29 ms and expanded 15,000 nodes, while DFS took 23.42 ms and expanded 54,472 nodes.
+## Profiling Tools
 
-Therefore, based on the measured results, BFS showed better performance for this specific graph and goal node. The result is specific to the selected graph, implementation, and test conditions.
+### 1. `timeit`
 
-Flamegraphs
-The profiling folder contains the flamegraphs generated during profiling:
+Python's built-in `timeit` module is used to measure the execution time of the BFS and DFS implementations.
 
-bfs_flamegraph.svg
-dfs_flamegraph.svg
-These provide a visual representation of the program's execution during profiling.
+The reported values represent the selected experimental measurements used in the SLE-2 report.
 
-Repository Structure
-IAI_SLE-2_25UAM044/
+### 2. Py-Spy
+
+**Py-Spy** is used for runtime profiling of the Python program.
+
+It helps identify where the program spends its execution time and is used to generate flamegraphs for both BFS and DFS.
+
+### 3. Node Counter
+
+A `nodes_expanded` counter is maintained in each search algorithm.
+
+This counter records the number of nodes processed by the algorithm before the goal node is reached.
+
+## Experimental Results
+
+The selected experimental results are shown below:
+
+| **Metric**     | **BFS** |  **DFS** |
+| -------------- | ------: | -------: |
+| Average Time   | 4.53 ms | 22.33 ms |
+| Nodes Expanded |  15,000 |   54,472 |
+
+The above values were obtained from the experiment documented in the SLE-2 report.
+
+## Complexity
+
+| **Algorithm** | **Best Case** | **Average Case** | **Worst Case** | **Space Complexity** |
+| ------------- | ------------- | ---------------- | -------------- | -------------------- |
+| BFS           | O(1)          | O(V)             | O(V)           | O(V)                 |
+| DFS           | O(1)          | O(V)             | O(V)           | O(V)                 |
+
+Where **V** represents the number of vertices in the graph.
+
+The actual execution behaviour can vary depending on the graph structure, goal-node position, implementation, and system conditions.
+
+## Analysis
+
+For the selected binary-tree experiment, BFS recorded a lower execution time and expanded fewer nodes than DFS.
+
+* **BFS:** 5.29 ms and 15,000 nodes expanded
+* **DFS:** 23.42 ms and 54,472 nodes expanded
+
+Based on these measurements, BFS required less execution time and examined fewer nodes for the selected goal node.
+
+However, these results are specific to the graph structure, implementation, hardware, and experimental conditions used in this project. They should not be considered a universal performance comparison between BFS and DFS.
+
+## Flamegraphs
+
+The flamegraphs generated using Py-Spy are stored inside the `profiling` directory.
+
+Files included:
+
+* `bfs_flamegraph.svg`
+* `dfs_flamegraph.svg`
+
+The flamegraphs provide a visual representation of the program's runtime activity and help identify the functions that contribute to the execution time.
+
+## Repository Structure
+
+```text
+IAI_SLE-2_25UME044/
 │
 ├── README.md
 ├── bfs_dfs_profiling.py
@@ -80,17 +119,28 @@ IAI_SLE-2_25UAM044/
 │
 └── report/
     └── SLE2_25UAM042_Koustubh_Sampat_Chorade.pdf
-AI Contribution
-ChatGPT was used to:
+```
 
-Understand BFS and DFS concepts.
-Assist with the Python implementation structure.
-Understand profiling using timeit and Py-Spy.
-Help interpret the experimental results.
-Assist in preparing the SLE-2 documentation.
-The final program was executed and tested by the student, and the reported performance values were obtained from the student's execution.
+## AI Contribution
 
-Conclusion
-This project demonstrates the empirical performance comparison of BFS and DFS on the same binary-tree graph.
+ChatGPT was used during the development and documentation of this project for:
 
-The experiment shows that execution time and the number of nodes expanded are useful measures for analysing search algorithms. Profiling helps observe the actual behaviour of an implementation under specific test conditions.
+* Understanding the concepts of BFS and DFS.
+* Structuring the Python implementation.
+* Understanding performance measurement using `timeit`.
+* Learning the profiling workflow using Py-Spy.
+* Understanding flamegraph output.
+* Interpreting the experimental observations.
+* Assisting in the preparation of the SLE-2 documentation.
+
+The final program was executed and tested by the student. The performance values reported in this README were obtained from the student's execution.
+
+## Conclusion
+
+This project provides a practical comparison of BFS and DFS using the same binary-tree graph and search objective.
+
+The experiment demonstrates that **execution time and the number of nodes expanded** are useful metrics for evaluating search algorithms in practice.
+
+For the selected experimental conditions, BFS recorded lower execution time and fewer node expansions than DFS. The use of **Py-Spy flamegraphs** further provides a visual way to examine the runtime behaviour of the implementations.
+
+Overall, the experiment helps demonstrate the difference between theoretical algorithmic complexity and the performance observed during an actual program execution.
